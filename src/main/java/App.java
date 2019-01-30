@@ -1,26 +1,39 @@
 public class App {
-    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+    public static void main(String[] args) {
 
-        String fullName = "Jan Kowalski";
-        buyCar(fullName);
+        String fullName1 = "Jan Kowalski";
+        String fullName2 = "Szymon Styczeń";
 
+        buySmth(fullName1, true, String.valueOf(Car.carBrand.MERCEDES), String.valueOf(Car.carColor.NIEBIESKI));
+        buySmth(fullName2, false, String.valueOf(Bike.bikeBrand.KROSS), String.valueOf(Bike.bikeColor.ZIELONY));
     }
 
-    public static void buyCar(String fullName)  throws IllegalAccessException, InstantiationException{
+
+    public static void buySmth(String fullName, boolean wantsCar, String brand, String color){
         StringParser.getNamesFromRegex(fullName);
-
         Person person = new Person(StringParser.getName(),StringParser.getSurname());
+        Saler autoSaler = new Saler("Piotr", "Nowak", true);
+        Saler bikeSaler = new Saler("Daniel", "Nowak", false);
 
-        Person[] people = {person};
+        if (wantsCar && autoSaler.isAutoSaler()){
+            Car car = new Car();
+            System.out.println(person.getName() + " kupił: " + Car.carBrand.valueOf(brand) +
+                    " kolor: " + Car.carColor.valueOf(color)+ " o godzinie " + car.currentTime() +
+                    "\nSprawny: " + car.ismoving() +
+                    "\nWydajny: " + car.isEfficient());
+            autoSaler.sellsSmth(brand);
 
-        for (Person personJan : people) {
-            System.out.println(personJan.getName() + " kupił: " + Car.class.getName() + " " + Car.carBrand.AUDI.toString() +
-                    " kolor: " + Car.carColor.NIEBIESKI.toString() + " o godzinie " + Car.class.newInstance().currentTime() +
-                    "\nSprawny: " + Car.class.newInstance().ismoving() +
-                    "\nWydajny: " + Car.class.newInstance().isEfficient());
+        }else {
+            Bike bike = new Bike();
+            System.out.println(person.getName() + " kupił: " + Bike.bikeBrand.valueOf(brand) +
+                    " kolor: " + Bike.bikeColor.valueOf(color)+ " o godzinie " + bike.currentTime() +
+                    "\nSprawny: " + bike.ismoving() +
+                    "\nWydajny: " + bike.isEfficient());
+            bikeSaler.sellsSmth(brand);
         }
-    }
 
+
+    }
 
 
 }

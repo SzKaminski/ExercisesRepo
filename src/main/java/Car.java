@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Car implements Vahicle {
+public class Car implements Vehicle {
 
 
     public enum carBrand{

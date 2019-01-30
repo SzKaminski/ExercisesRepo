@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Bike implements Vahicle {
+public class Bike implements Vehicle {
 
     public enum bikeBrand{
         KROSS, GIANT, ROMET;
