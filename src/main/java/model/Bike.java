@@ -1,19 +1,22 @@
+package model;
+
+import interfaces.Vehicle;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Car implements Vehicle {
+public class Bike implements Vehicle {
 
-
-    public enum carBrand{
-        MERCEDES, AUDI, BMW;
+    public enum bikeBrand{
+        KROSS, GIANT, ROMET;
     }
 
-    public enum carColor{
+    public enum bikeColor{
         NIEBIESKI, CZARNY, ZIELONY;
     }
 
     public boolean isEfficient() {
-        return false;
+        return true;
     }
 
     public boolean ismoving() {
@@ -25,4 +28,6 @@ public class Car implements Vehicle {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         return sdf.format(cal.getTime());
     }
+
+
 }

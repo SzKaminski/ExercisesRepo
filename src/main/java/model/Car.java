@@ -1,18 +1,23 @@
+package model;
+
+import interfaces.Vehicle;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Bike implements Vehicle {
+public class Car implements Vehicle {
 
-    public enum bikeBrand{
-        KROSS, GIANT, ROMET;
+
+    public enum carBrand{
+        MERCEDES, AUDI, BMW;
     }
 
-    public enum bikeColor{
+    public enum carColor{
         NIEBIESKI, CZARNY, ZIELONY;
     }
 
     public boolean isEfficient() {
-        return true;
+        return false;
     }
 
     public boolean ismoving() {

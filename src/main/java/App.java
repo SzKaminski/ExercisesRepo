@@ -1,3 +1,9 @@
+import model.Bike;
+import model.Car;
+import model.Person;
+import model.Seller;
+import parser.StringParser;
+
 public class App {
     public static void main(String[] args) {
 
@@ -12,16 +18,16 @@ public class App {
     public static void buySmth(String fullName, boolean wantsCar, String brand, String color){
         StringParser.getNamesFromRegex(fullName);
         Person person = new Person(StringParser.getName(),StringParser.getSurname());
-        Saler autoSaler = new Saler("Piotr", "Nowak", true);
-        Saler bikeSaler = new Saler("Daniel", "Nowak", false);
+        Seller autoSeller = new Seller("Piotr", "Nowak", true);
+        Seller bikeSeller = new Seller("Daniel", "Nowak", false);
 
-        if (wantsCar && autoSaler.isAutoSaler()){
+        if (wantsCar && autoSeller.isAutoSeller()){
             Car car = new Car();
             System.out.println(person.getName() + " kupił: " + Car.carBrand.valueOf(brand) +
                     " kolor: " + Car.carColor.valueOf(color)+ " o godzinie " + car.currentTime() +
                     "\nSprawny: " + car.ismoving() +
                     "\nWydajny: " + car.isEfficient());
-            autoSaler.sellsSmth(brand);
+            autoSeller.sellsSmth(brand);
 
         }else {
             Bike bike = new Bike();
@@ -29,7 +35,7 @@ public class App {
                     " kolor: " + Bike.bikeColor.valueOf(color)+ " o godzinie " + bike.currentTime() +
                     "\nSprawny: " + bike.ismoving() +
                     "\nWydajny: " + bike.isEfficient());
-            bikeSaler.sellsSmth(brand);
+            bikeSeller.sellsSmth(brand);
         }
 
 
